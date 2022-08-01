@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <configuration scan="true" scanPeriod="10000">
 
+    <property name="LOG_HOME_DIR" value="${sandbox_log_path:-${user.home}/logs}"/>
+
     <appender name="SANDBOX-FILE-APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${user.home}/logs/sandbox/sandbox.log</file>
+        <file>${LOG_HOME_DIR}/sandbox/sandbox.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <FileNamePattern>${user.home}/logs/sandbox/sandbox.log.%d{yyyy-MM-dd}</FileNamePattern>
+            <FileNamePattern>${LOG_HOME_DIR}/sandbox/sandbox.log.%d{yyyy-MM-dd}</FileNamePattern>
             <MaxHistory>30</MaxHistory>
         </rollingPolicy>
         <encoder>
